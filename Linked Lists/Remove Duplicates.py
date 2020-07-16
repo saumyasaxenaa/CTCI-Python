@@ -43,6 +43,17 @@ class LinkedList:
                 prev = currNode
             currNode = currNode.next
 
+    def noBufferDeleteDups(self):
+        currNode = self.head
+        while currNode != None:
+            runner = currNode
+            while runner.next != None:
+                if runner.next.data == currNode.data:
+                    runner.next = runner.next.next
+                else:
+                    runner = runner.next
+            currNode = currNode.next
+
 
 myLL = LinkedList()
 myLL.append(10)
@@ -51,5 +62,6 @@ myLL.append(16)
 myLL.prepend(1)
 myLL.append(1)
 print(myLL.printList())
-myLL.deleteDups()
+# myLL.deleteDups() # O(n)
+myLL.noBufferDeleteDups() #O(n^2)
 print(myLL.printList())
