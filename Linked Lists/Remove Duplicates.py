@@ -13,17 +13,14 @@ class LinkedList:
         if self.head == None:
             self.head = new_Node
             self.tail = self.head
-            self.length = 1
         else:
             self.tail.next = new_Node
             self.tail = new_Node
-            self.length += 1
 
     def prepend(self, value):
         new_Node = Node(value)
         new_Node.next = self.head
         self.head = new_Node
-        self.length += 1
 
     def printList(self):
         currNode = self.head
