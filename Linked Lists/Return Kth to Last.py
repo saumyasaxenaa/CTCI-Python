@@ -19,8 +19,8 @@ class LinkedList:
 
     def prepend(self, value):
         new_Node = Node(value)
-        self.tail.next = new_Node
-        self.tail = new_Node
+        new_Node.next = self.head
+        self.head = new_Node
 
     def printList(self):
         currNode = self.head
